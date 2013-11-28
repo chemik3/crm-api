@@ -19,7 +19,7 @@ list of available regions
 list of available products
 
 ## Technology
-* Java Servlet
+* Java Servlet, Jersey (https://jersey.java.net/), Jacson (http://jackson.codehaus.org/)
 * Maven (http://maven.apache.org/) or Gradle (http://www.gradle.org/)
 * JSON API (http://jsonapi.org/)
 * RAML (http://raml.org)
