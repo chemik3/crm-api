@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+mainClassName = 'se.telia.bdl.netbilldb.NetbillDbService'
+
+project.ext {
+    dropwizardVersion = '0.6.2'
+}
+
+dependencies {
+    compile group: 'com.yammer.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
+}
+
+repositories {
+  mavenCentral()
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.9'
+}
