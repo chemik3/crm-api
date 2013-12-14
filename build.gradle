@@ -10,6 +10,7 @@ mainClassName = 'net.snet.crm.api.CrmApiService'
 
 project.ext {
     dropwizardVersion = '0.6.2'
+    serviceConfig = 'crm-api-dev.yml'
 }
 
 dependencies {
@@ -22,4 +23,8 @@ repositories {
 
 task wrapper(type: Wrapper) {
   gradleVersion = '1.9'
+}
+
+run {
+  args 'server', './src/dist/config/' + serviceConfig
 }
