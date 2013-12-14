@@ -3,4 +3,7 @@ build
 .classpath
 .project
 .settings
-
+*.iml
+*.ipr
+*.iws
+out

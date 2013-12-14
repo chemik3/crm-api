@@ -6,7 +6,7 @@ apply plugin: 'idea'
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
-mainClassName = 'se.telia.bdl.netbilldb.NetbillDbService'
+mainClassName = 'net.snet.crm.api.CrmApiService'
 
 project.ext {
     dropwizardVersion = '0.6.2'
