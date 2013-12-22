@@ -1,1 +1,7 @@
 defaultName: Visitor
+
+database:
+  driverClass: org.postgresql.Driver
+  user: sisa
+  password: sisa
+  url: jdbc:postgresql://localhost/crm-api
