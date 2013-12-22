@@ -4,7 +4,7 @@ Implements business logic of CRM system.
 
 ## Building
 
-Project uses 'gradle' build tool.
+Project uses [gradle](http://www.gradle.org/) build tool.
 
 ### Runing crm-api service
 
@@ -20,28 +20,28 @@ Point your browser at http://localhost:8080/customers
 > gradlew distZip
 ```
 
-You would find distribution package in 'build/distributions'. In order to run the service
-you need to unzip the packege and 'cd' into it.
+You would find distribution package in `build/distributions`. In order to run the service
+you need to unzip the packege and `cd` into it.
 
 ```
 > bin/crm-api server config/crm-api-dev.yml
 ```
 
+### Database
+
+[PostgreSql](http://www.postgresql.org/) databse is used. Database connection details are defined in `src/dist/config/crm-api-dev.yml`. Initialization script (containing sample data) can be found in `src/test/resource/db` folder.
+
 ## REST API
 
+API specification is provided at http://silesnet.github.io/.
+
+This project aims at implementing following resource APIs:
+* customers
+* services
+* products
+* regions
+
 All data should be sent in JSON (application/vnd.api+json), http://jsonapi.org/
-
-### POST /customers
-create new customer
-
-### POST /customers/:id/services
-create new service for given customer
-
-### GET /regions
-list of available regions
-
-### GET /products
-list of available products
 
 ## Technology
 * Dropwizard (http://dropwizard.codahale.com)
