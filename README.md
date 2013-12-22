@@ -29,7 +29,7 @@ you need to unzip the packege and `cd` into it.
 
 ### Database
 
-[PostgreSql](http://www.postgresql.org/) databse is used. Database connection details are defined in `src/dist/config/crm-api-dev.yml`. Initialization script (containing sample data) can be found in `src/test/resource/db` folder.
+[PostgreSql](http://www.postgresql.org/) databse is used. Database connection details are defined in `src/dist/config/crm-api-dev.yml`. Initialization script (containing sample data) can be found in `src/test/resources/db` folder.
 
 ## REST API
 
