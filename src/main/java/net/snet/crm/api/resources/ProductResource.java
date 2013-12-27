@@ -1,8 +1,8 @@
 package net.snet.crm.api.resources;
 
 import com.yammer.metrics.annotation.Timed;
-import net.snet.crm.api.dao.RegionDao;
-import net.snet.crm.api.model.Region;
+import net.snet.crm.api.dao.ProductDao;
+import net.snet.crm.api.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,24 +18,24 @@ import java.util.Map;
 /**
  * Created by admin on 22.12.13.
  */
-@Path("/regions")
+@Path("/products")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class RegionResource {
+public class ProductResource {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegionResource.class);
 
-	private final RegionDao regionDao;
+	private final ProductDao productDao;
 
-	public RegionResource(RegionDao regionDao) {
-		this.regionDao = regionDao;
+	public ProductResource(ProductDao productDao) {
+		this.productDao = productDao;
 	}
 
 	@GET
 	@Timed(name="get-requests")
-	public Map<String, Object> findAllRegions() {
-		final HashMap<String, Object> regions = new HashMap<>();
-		final List<Region> allRegions = regionDao.findAllRegions();
-		regions.put("regions", allRegions);
-		return regions;
+	public Map<String, Object> findAllProducts() {
+		final HashMap<String, Object> products = new HashMap<>();
+		final List<Product> allProducts = productDao.findAllProducts();
+		products.put("products", allProducts);
+		return products;
 	}
 }

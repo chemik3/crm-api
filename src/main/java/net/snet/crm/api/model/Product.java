@@ -3,16 +3,22 @@ package net.snet.crm.api.model;
 /**
  * Created by admin on 22.12.13.
  */
-public class Region {
+public class Product {
 	private long id;
 	private String name;
-
-	public Region() {
+        private int download;
+        private int upload;
+        private int price;
+        
+	public Product() {
 	}
 
-	public Region(long id, String name) {
+	public Product(long id, String name, int download, int upload, int price) {
 		this.id = id;
 		this.name = name;
+                this.download = download;
+                this.upload = upload;
+                this.price = price;
 	}
 
 	public long getId() {
@@ -34,9 +40,9 @@ public class Region {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (!(o instanceof Region)) return false;
+		if (!(o instanceof Product)) return false;
 
-		Region region = (Region) o;
+		Product region = (Product) o;
 
 		if (id != region.id) return false;
 		if (!name.equals(region.name)) return false;
