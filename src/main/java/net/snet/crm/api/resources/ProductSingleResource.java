@@ -1,5 +1,6 @@
 package net.snet.crm.api.resources;
 
+import com.yammer.dropwizard.jersey.params.LongParam;
 import com.yammer.metrics.annotation.Timed;
 import net.snet.crm.api.dao.ProductDao;
 import net.snet.crm.api.model.Product;
@@ -14,11 +15,12 @@ import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.PathParam;
 
 /**
  * Created by admin on 22.12.13.
  */
-@Path("/products/{product}")
+@Path("/products/{productId}")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductSingleResource {
@@ -32,13 +34,13 @@ public class ProductSingleResource {
                 
 	@GET
 	@Timed(name="get-requests")
-	public Map<String, Object> findAllProducts() {
-		final HashMap<String, Object> products = new HashMap<>();
-		final List<Product> allProducts = productDao.findAllProducts();
-		products.put("products", allProducts);
-		return products;
+	public Map<String, Object> returnProduct(@PathParam("productId") LongParam productId) {
+            int response_code;
+            
+            final HashMap<String, Object> products = new HashMap<>();
+            final List<Product> product = productDao.getProductById(productId.get().intValue());
+            products.put("products", product);            
+            return products;
 	}
-        
- 
-         
+                 
 }

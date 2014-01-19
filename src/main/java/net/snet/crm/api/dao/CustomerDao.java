@@ -7,6 +7,10 @@ package net.snet.crm.api.dao;
 
 import java.util.List;
 import net.snet.crm.api.model.Customer;
+import net.snet.crm.api.model.Customers;
+import net.snet.crm.api.model.Product;
+import org.skife.jdbi.v2.sqlobject.Bind;
+import org.skife.jdbi.v2.sqlobject.SqlQuery;
 
 /**
  *
@@ -14,9 +18,14 @@ import net.snet.crm.api.model.Customer;
  */
 public interface CustomerDao {
 
-    public Customer storeCustomer(Customer customer);
-    public List<Customer> getCustomer(); 
-    public void setCustomer(List<Customer> customer);
+    public Customers storeCustomer(Customers customers);
+    public List<Customer> getCustomerById(int id);
+    public int getResponseCode();
+    
+//    @SqlQuery("SELECT id, name FROM customers WHER id = :id")
+//    List<Customer> readCustomer(@Bind("id") int id);
+//    public List<Customer> getCustomer(); 
+//    public void setCustomer(List<Customer> customer);
     
     public Customer findCustomerByPublicId(String publicId);
     public Customer findCustomerByContractNo(String contractNo);

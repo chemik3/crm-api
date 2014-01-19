@@ -9,6 +9,7 @@ import net.snet.crm.api.dao.RegionDao;
 import net.snet.crm.api.dao.ProductDao;
 import net.snet.crm.api.dao.impl.CustomerDaoJdbi;
 import net.snet.crm.api.resources.CustomerResource;
+import net.snet.crm.api.resources.CustomerGetResource;
 import net.snet.crm.api.resources.RegionResource;
 import net.snet.crm.api.resources.ProductResource;
 import net.snet.crm.api.resources.ProductSingleResource;
@@ -31,10 +32,12 @@ public class CrmApiService extends Service<CrmApiConfiguration> {
 		final RegionDao regionDao = dbi.onDemand(RegionDao.class);
                 final ProductDao productDao = dbi.onDemand(ProductDao.class);
                 final CustomerDao customerDao = new CustomerDaoJdbi(dbi);
+                
 		environment.addResource(new CustomerResource(customerDao));
+                environment.addResource(new CustomerGetResource(customerDao));
 		environment.addResource(new RegionResource(regionDao));
                 environment.addResource(new ProductResource(productDao));
-                 environment.addResource(new ProductSingleResource(productDao));
+                environment.addResource(new ProductSingleResource(productDao));
   }
 
 }

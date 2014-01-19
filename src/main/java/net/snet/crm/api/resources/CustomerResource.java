@@ -1,21 +1,19 @@
 package net.snet.crm.api.resources;
 
-import com.google.common.base.Optional;
-import com.yammer.metrics.annotation.Timed;
-import static java.util.Collections.list;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.management.Notification;
-import javax.validation.Valid;
 import net.snet.crm.api.model.Customer;
+import net.snet.crm.api.model.Customers;
 import net.snet.crm.api.dao.CustomerDao;
 
 @Path("/customers/")
@@ -30,17 +28,31 @@ public class CustomerResource {
     this.customerDao = customerDao;
   }
   
-  @POST
-  public CustomerDao receiveCustomer(List<Customer> customers) {
 //  @POST
-//  public CustomerDao receiveCustomer(CustomerDao customerDao) {
-//      int hh = customers.size();
-//    customerDao.storeCustomer(customers.get(0));
+//  public CustomerDao receiveCustomer(List<Customer> customers) {
+////  @POST
+////  public CustomerDao receiveCustomer(CustomerDao customerDao) {
+////      int hh = customers.size();
+////    customerDao.storeCustomer(customers.get(0));
+//      
+//    return customerDao;  
+////     String hhg; 
+////     hhg = "sdfsd";
+//    }
+    @POST
+    public Customers receiveCustomer(Customers customers, @Context HttpServletResponse response) {   
+        int response_code;
+
+        customerDao.storeCustomer(customers);    
+        response_code = customerDao.getResponseCode();
+        if (response_code != 200) {
+            throw new WebApplicationException(Response.status(response_code).build());
+        }   
       
-    return customerDao;  
-//     String hhg; 
-//     hhg = "sdfsd";
-  }
+        return customers;
+    }
+
+  
 //  @POST
 //   public Customer createPerson(Person person) {
 //        return peopleDAO.create(person);

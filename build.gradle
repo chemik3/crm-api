@@ -29,4 +29,5 @@ task wrapper(type: Wrapper) {
 
 run {
   args 'server', './src/dist/config/' + serviceConfig
+  debug true
 }
