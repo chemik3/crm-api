@@ -11,6 +11,7 @@ import net.snet.crm.api.dao.impl.CustomerDaoJdbi;
 import net.snet.crm.api.resources.CustomerResource;
 import net.snet.crm.api.resources.CustomerGetResource;
 import net.snet.crm.api.resources.RegionResource;
+import net.snet.crm.api.resources.RegionSingleResource;
 import net.snet.crm.api.resources.ProductResource;
 import net.snet.crm.api.resources.ProductSingleResource;
 import org.skife.jdbi.v2.DBI;
@@ -36,6 +37,7 @@ public class CrmApiService extends Service<CrmApiConfiguration> {
 		environment.addResource(new CustomerResource(customerDao));
                 environment.addResource(new CustomerGetResource(customerDao));
 		environment.addResource(new RegionResource(regionDao));
+                environment.addResource(new RegionSingleResource(regionDao));
                 environment.addResource(new ProductResource(productDao));
                 environment.addResource(new ProductSingleResource(productDao));
   }
