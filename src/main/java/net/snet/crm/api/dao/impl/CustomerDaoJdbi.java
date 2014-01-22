@@ -9,6 +9,8 @@ package net.snet.crm.api.dao.impl;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import net.snet.crm.api.dao.CustomerDao;
 import net.snet.crm.api.model.Customer;
 import net.snet.crm.api.model.Customers;
@@ -25,7 +27,7 @@ public class CustomerDaoJdbi implements CustomerDao {
     
     private List<Customer> customer;
     private final DBI jdbi;
-    private int responseCode; 
+    private Status responseCode; 
     
     
     public CustomerDaoJdbi(DBI jdbi) {
@@ -41,7 +43,7 @@ public class CustomerDaoJdbi implements CustomerDao {
     }
     
     @Override
-    public int getResponseCode() {
+    public Status getResponseCode() {
         return responseCode;
     }
       
@@ -52,7 +54,7 @@ public class CustomerDaoJdbi implements CustomerDao {
         
         //Only one customer per request is acceptable + check obligatory fields
         if (customers.size() != 1 || customers.checkField() == false) {
-            responseCode = 400;
+            responseCode = Response.Status.BAD_REQUEST;
             return customers;
         }          
         
@@ -66,7 +68,7 @@ public class CustomerDaoJdbi implements CustomerDao {
                                                .map(new CustomerMapper()).list();
              
             if (!customer_db.isEmpty()) {
-                responseCode = 409;
+                responseCode = Response.Status.CONFLICT;
                 customers.setCustomers(customer_db);
                 return customers;
             }
@@ -120,7 +122,7 @@ public class CustomerDaoJdbi implements CustomerDao {
                   .execute();  
 
             handle.commit();
-            responseCode = 201;
+            responseCode = Response.Status.fromStatusCode(201);
             return customers;
                   
         } finally {
@@ -144,9 +146,9 @@ public class CustomerDaoJdbi implements CustomerDao {
                                         .bind("id", id)
                                         .map(new CustomerMapper()).first();
             if (customer_l == null) {
-                responseCode = 409;
+                responseCode = Response.Status.CONFLICT;
             } else {
-                responseCode = 200;
+                responseCode = Response.Status.OK;
             }
             customers.add(customer_l);
             

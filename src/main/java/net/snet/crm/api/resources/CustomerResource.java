@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response.Status;
 import net.snet.crm.api.model.Customers;
 import net.snet.crm.api.dao.CustomerDao;
 
@@ -25,17 +26,14 @@ public class CustomerResource {
     public CustomerResource(final CustomerDao customerDao) {
       this.customerDao = customerDao;
     }
-
+    
     @POST
-    public Customers receiveCustomer(Customers customers, @Context HttpServletResponse response) {   
-        int response_code;
+    public Response receiveCustomer(Customers customers, @Context HttpServletResponse response) {   
+        Status responseCode;
 
-        customerDao.storeCustomer(customers);    
-        response_code = customerDao.getResponseCode();
-        if (response_code != 200) {
-            throw new WebApplicationException(Response.status(response_code).build());
-        }   
- 
-        return customers;
+        customers = customerDao.storeCustomer(customers);    
+        responseCode = customerDao.getResponseCode();
+  
+        return Response.status(responseCode).entity(customers).build();
     }
 }
