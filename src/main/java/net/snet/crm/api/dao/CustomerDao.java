@@ -16,11 +16,14 @@ import net.snet.crm.api.model.Customers;
  */
 public interface CustomerDao {
 
-    public Customers storeCustomer(Customers customers);
-    public List<Customer> getCustomerById(int id);
-    public Status getResponseCode();
-    
-    public Customer findCustomerByPublicId(String publicId);
-    public Customer findCustomerByContractNo(String contractNo);
+	public Customers storeCustomer(Customers customers);
+
+	public List<Customer> getCustomerById(int id);
+
+	public Status getResponseCode();
+
+	public Customer findCustomerByPublicId(String publicId);
+
+	public Customer findCustomerByContractNo(String contractNo);
 
 }

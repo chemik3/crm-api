@@ -22,6 +22,7 @@ import java.util.Map;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductResource {
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegionResource.class);
 
 	private final ProductDao productDao;
@@ -31,7 +32,7 @@ public class ProductResource {
 	}
 
 	@GET
-	@Timed(name="get-requests")
+	@Timed(name = "get-requests")
 	public Map<String, Object> findAllProducts() {
 		final HashMap<String, Object> products = new HashMap<>();
 		final List<Product> allProducts = productDao.findAllProducts();

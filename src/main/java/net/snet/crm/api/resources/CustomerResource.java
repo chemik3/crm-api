@@ -19,21 +19,22 @@ import net.snet.crm.api.dao.CustomerDao;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResource {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerResource.class);
 
-    private final CustomerDao customerDao;
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerResource.class);
 
-    public CustomerResource(final CustomerDao customerDao) {
-      this.customerDao = customerDao;
-    }
-    
-    @POST
-    public Response receiveCustomer(Customers customers, @Context HttpServletResponse response) {   
-        Status responseCode;
+	private final CustomerDao customerDao;
 
-        customers = customerDao.storeCustomer(customers);    
-        responseCode = customerDao.getResponseCode();
-  
-        return Response.status(responseCode).entity(customers).build();
-    }
+	public CustomerResource(final CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+
+	@POST
+	public Response receiveCustomer(Customers customers, @Context HttpServletResponse response) {
+		Status responseCode;
+
+		customers = customerDao.storeCustomer(customers);
+		responseCode = customerDao.getResponseCode();
+
+		return Response.status(responseCode).entity(customers).build();
+	}
 }

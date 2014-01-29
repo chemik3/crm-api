@@ -9,19 +9,19 @@ import javax.validation.constraints.NotNull;
 
 public class CrmApiConfiguration extends Configuration {
 
-    @JsonProperty
-    private String defaultName = "Anonymous";
+	@JsonProperty
+	private String defaultName = "Anonymous";
 
-    @Valid
-    @NotNull
-    @JsonProperty
-    private DatabaseConfiguration database = new DatabaseConfiguration();
+	@Valid
+	@NotNull
+	@JsonProperty
+	private DatabaseConfiguration database = new DatabaseConfiguration();
 
-    public String getDefaultName() {
-        return defaultName;
-    }
+	public String getDefaultName() {
+		return defaultName;
+	}
 
-    public DatabaseConfiguration getDatabaseConfiguration() {
-        return database;
-    }
+	public DatabaseConfiguration getDatabaseConfiguration() {
+		return database;
+	}
 }

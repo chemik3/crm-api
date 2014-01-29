@@ -11,17 +11,16 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 /**
  * Created by admin on 22.12.13.
  */
-
 @RegisterMapper(ProductMapper.class)
 public interface ProductDao {
-    
-    @SqlQuery("SELECT id, name, download, upload, price FROM products")
-    List<Product> findAllProducts();
 
-    @SqlQuery("SELECT id, name, download, upload, price FROM products WHERE id = :id")
-    List<Product> getProductById(@Bind("id") int id);
+	@SqlQuery("SELECT id, name, download, upload, price FROM products")
+	List<Product> findAllProducts();
 
-    @SqlUpdate("DELETE FROM products WHERE id = :id")
-    int deleteProductById(@Bind("id") int id);
-    
+	@SqlQuery("SELECT id, name, download, upload, price FROM products WHERE id = :id")
+	List<Product> getProductById(@Bind("id") int id);
+
+	@SqlUpdate("DELETE FROM products WHERE id = :id")
+	int deleteProductById(@Bind("id") int id);
+
 }

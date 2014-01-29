@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package net.snet.crm.api.resources;
 
 import com.yammer.dropwizard.jersey.params.LongParam;
@@ -26,18 +25,18 @@ import net.snet.crm.api.model.Customer;
 @Path("/customers/{customerId}")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerGetResource {
-    
-    private final CustomerDao customerDao;
 
-    public CustomerGetResource(final CustomerDao customerDao) {
-        this.customerDao = customerDao;
-    }
-        
-    @GET
-    public Map<String, Object> returnCustomer(@PathParam("customerId") LongParam personId) {  
-        final HashMap<String, Object> customers = new HashMap<>();
-        final List<Customer> customerList = customerDao.getCustomerById(personId.get().intValue());
-	customers.put("customers", customerList);
-        return customers; 
-    }
+	private final CustomerDao customerDao;
+
+	public CustomerGetResource(final CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+
+	@GET
+	public Map<String, Object> returnCustomer(@PathParam("customerId") LongParam personId) {
+		final HashMap<String, Object> customers = new HashMap<>();
+		final List<Customer> customerList = customerDao.getCustomerById(personId.get().intValue());
+		customers.put("customers", customerList);
+		return customers;
+	}
 }

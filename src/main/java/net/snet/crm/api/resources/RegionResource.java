@@ -22,6 +22,7 @@ import java.util.Map;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class RegionResource {
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegionResource.class);
 
 	private final RegionDao regionDao;
@@ -31,7 +32,7 @@ public class RegionResource {
 	}
 
 	@GET
-	@Timed(name="get-requests")
+	@Timed(name = "get-requests")
 	public Map<String, Object> findAllRegions() {
 		final HashMap<String, Object> regions = new HashMap<>();
 		final List<Region> allRegions = regionDao.findAllRegions();

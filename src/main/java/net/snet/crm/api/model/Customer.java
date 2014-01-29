@@ -1,367 +1,384 @@
 package net.snet.crm.api.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.sql.Timestamp;
-//import net.snet.crm.api.jsonserializer.CustomBooleanSerializer;
 
 /**
  * Created by admin on 22.12.13.
  */
 public class Customer {
-    
-    private long id;
-    private long history_id;
-    private String public_id;
-    private String name;
-    private String supplementary_name;
-    private String street;
-    private String city;
-    private String postal_code;
-    private int country;
-    private String email;
-    private String dic;
-    private String contract_no;
-    private String connection_spot;
-    private Timestamp inserted_on;
-    private int frequency;  
-    private Timestamp lastly_billed;
-    private boolean is_billed_after;
-    private boolean deliver_by_email;
-    private String deliver_copy_email;
-    private boolean deliver_by_mail;
-    private boolean is_auto_billing;
-    private String info;
-    private String contact_name;
-    private String phone;
-    private boolean is_active;
-    private int status;
-    private long shire_id;
-    private int format;
-    private boolean deliver_signed;
-    private String symbol;
-    private Timestamp updated;
-    private String account_no;
-    private String bank_no;
-    private int variable;
-    
-    public Customer() {
-    }
-    
-    public Customer(long id, long history_id, String public_id, String name, String supplementary_name, String street, String city, String postal_code,
-                    int country, String email, String dic, String contract_no, String connection_spot, Timestamp inserted_on,
-                    int frequency, Timestamp lastly_billed, Boolean is_billed_after, Boolean deliver_by_email, String deliver_copy_email,
-                    Boolean deliver_by_mail, Boolean is_auto_billing, String info, String contact_name, String phone, Boolean is_active,
-                    int status, Long shire_id, int format, Boolean deliver_signed, String symbol, Timestamp updated, String account_no,
-                    String bank_no, int variable) {
 
-        this.id = id;
-        this.history_id = history_id;
-        this.public_id = public_id;
-        this.name = name;
-        this.supplementary_name = supplementary_name;
-        this.street = street;
-        this.city = city;
-        this.postal_code = postal_code;
-        this.country = country;
-        this.email = email;
-        this.dic = dic;
-        this.contract_no = contract_no;
-        this.connection_spot = connection_spot;
-        this.inserted_on = inserted_on;
-        this.frequency = frequency ;
-        this.lastly_billed = lastly_billed;
-        this.is_billed_after = is_billed_after;
-        this.deliver_by_email = deliver_by_email;
-        this.deliver_copy_email = deliver_copy_email;
-        this.deliver_by_mail = deliver_by_mail;
-        this.is_auto_billing = is_auto_billing;
-        this.info = info;
-        this.contact_name = contact_name;
-        this.phone = phone;
-        this.is_active = is_active;
-        this.status = status;
-        this.shire_id = shire_id;
-        this.format = format;
-        this.deliver_signed = deliver_signed;
-        this.symbol = symbol;
-        this.updated = updated;
-        this.account_no = account_no;    	
-    }
+	private long id;
+	@JsonProperty("history_id")
+	private long historyId;
+	@JsonProperty("public_id")
+	private String publicId;
+	private String name;
+	@JsonProperty("supplementary_name")
+	private String supplementaryName;
+	private String street;
+	private String city;
+	@JsonProperty("postal_code")
+	private String postalCode;
+	private int country;
+	private String email;
+	private String dic;
+	@JsonProperty("contract_no")
+	private String contractNo;
+	@JsonProperty("connection_spot")
+	private String connectionSpot;
+	@JsonProperty("inserted_on")
+	private Timestamp insertedOn;
+	private int frequency;
+	@JsonProperty("lastly_billed")
+	private Timestamp lastlyBilled;
+	@JsonProperty("is_billed_after")
+	private boolean isBilledAfter;
+	@JsonProperty("deliver_by_email")
+	private boolean deliverByEmail;
+	@JsonProperty("deliver_copy_email")
+	private String deliverCopyEmail;
+	@JsonProperty("deliver_by_mail")
+	private boolean deliverByMail;
+	@JsonProperty("is_auto_billing")
+	private boolean isAutoBilling;
+	private String info;
+	@JsonProperty("contact_name")
+	private String contactName;
+	private String phone;
+	@JsonProperty("is_active")
+	private boolean isActive;
+	private int status;
+	@JsonProperty("shire_id")
+	private long shireId;
+	private int format;
+	@JsonProperty("deliver_signed")
+	private boolean deliverSigned;
+	private String symbol;
+	private Timestamp updated;
+	@JsonProperty("account_no")
+	private String accountNo;
+	@JsonProperty("bank_no")
+	private String bankNo;
+	private int variable;
 
-    public Customer(String name) {
-        this.name = name;
-    }
-    
-    public long getId() {
-        return id;
-    }
+	public Customer() {
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
-    
-    public long getHistory_id() {
-        return history_id;
-    }
+	public Customer(long id, long historyId, String publicId, String name, String supplementaryName, String street, String city, String postalCode,
+					int country, String email, String dic, String contractNo, String connectionSpot, Timestamp insertedOn,
+					int frequency, Timestamp lastlyBilled, Boolean isBilledAfter, Boolean deliverByEmail, String deliverCopyEmail,
+					Boolean deliverByMail, Boolean isAutoBilling, String info, String contactName, String phone, Boolean isActive,
+					int status, Long shireId, int format, Boolean deliverSigned, String symbol, Timestamp updated, String accountNo,
+					String bankNo, int variable) {
 
-    public void setHistory_id(long history_id) {
-        this.history_id = history_id;
-    }
-    
-    public String getPublic_id() {
-        return public_id;
-    }
+		this.id = id;
+		this.historyId = historyId;
+		this.publicId = publicId;
+		this.name = name;
+		this.supplementaryName = supplementaryName;
+		this.street = street;
+		this.city = city;
+		this.postalCode = postalCode;
+		this.country = country;
+		this.email = email;
+		this.dic = dic;
+		this.contractNo = contractNo;
+		this.connectionSpot = connectionSpot;
+		this.insertedOn = insertedOn;
+		this.frequency = frequency;
+		this.lastlyBilled = lastlyBilled;
+		this.isBilledAfter = isBilledAfter;
+		this.deliverByEmail = deliverByEmail;
+		this.deliverCopyEmail = deliverCopyEmail;
+		this.deliverByMail = deliverByMail;
+		this.isAutoBilling = isAutoBilling;
+		this.info = info;
+		this.contactName = contactName;
+		this.phone = phone;
+		this.isActive = isActive;
+		this.status = status;
+		this.shireId = shireId;
+		this.format = format;
+		this.deliverSigned = deliverSigned;
+		this.symbol = symbol;
+		this.updated = updated;
+		this.accountNo = accountNo;
+	}
 
-    public void setPublic_id(String public_id) {
-        this.public_id = public_id;
-    }
-    
-    public String getName() {
-        return name;
-    }
+	public Customer(String name) {
+		this.name = name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getSupplementary_name() {
-        return supplementary_name;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setSupplementary_name(String supplementary_name) {
-        this.supplementary_name = supplementary_name;
-    }
-    
-    public String getStreet() {
-        return street;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-    
-    public String getCity() {
-        return city;
-    }
+	public long getHistoryId() {
+		return historyId;
+	}
 
-    public void setcity(String city) {
-        this.city = city;
-    }
-    
-    public String getPostal_code() {
-        return postal_code;
-    }
+	public void setHistoryId(long historyId) {
+		this.historyId = historyId;
+	}
 
-    public void setPostal_code(String postal_code) {
-        this.postal_code = postal_code;
-    }
-    
-    public int getCountry() {
-        return country;
-    }
+	public String getPublicId() {
+		return publicId;
+	}
 
-    public void setCountry(int country) {
-        this.country = country;
-    }
-    
-    public String getEmail() {
-        return email;
-    }
+	public void setPublicId(String publicId) {
+		this.publicId = publicId;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    public String getDic() {
-        return dic;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setDic(String dic) {
-        this.dic = dic;
-    }
-    
-    public String getContract_no() {
-        return contract_no;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setContract_no(String contract_no) {
-        this.contract_no = contract_no;
-    }
-    
-    public String getConnection_spot() {
-        return connection_spot;
-    }
+	public String getSupplementaryName() {
+		return supplementaryName;
+	}
 
-    public void setConnection_spot(String connection_spot) {
-        this.connection_spot = connection_spot;
-    }
-    
-    public Timestamp getInserted_on() {
-        return inserted_on;
-    }
+	public void setSupplementaryName(String supplementaryName) {
+		this.supplementaryName = supplementaryName;
+	}
 
-    public void setInserted_on(Timestamp inserted_on) {
-        this.inserted_on = inserted_on;
-    }
-    
-    public int getFrequency() {
-        return frequency;
-    }
+	public String getStreet() {
+		return street;
+	}
 
-    public void setFrequency(int frequency) {
-        this.frequency = frequency;
-    }
-    
-    public Timestamp getLastly_billed() {
-        return lastly_billed;
-    }
+	public void setStreet(String street) {
+		this.street = street;
+	}
 
-    public void setLastly_billed(Timestamp lastly_billed) {
-        this.lastly_billed = lastly_billed;
-    }
-    
-    //@JsonSerialize(using = CustomBooleanSerializer.class)
-    public boolean getIs_billed_after() {
-        return is_billed_after;
-    }
+	public String getCity() {
+		return city;
+	}
 
-    public void setIs_billed_after(boolean is_billed_after) {
-        this.is_billed_after = is_billed_after;
-    }
-    
-    public boolean getDeliver_by_email() {
-        return deliver_by_email;
-    }
+	public void setcity(String city) {
+		this.city = city;
+	}
 
-    public void setDeliver_by_email(boolean deliver_by_email) {
-        this.deliver_by_email = deliver_by_email;
-    }
-    
-    public String getDeliver_copy_email() {
-        return deliver_copy_email;
-    }
+	public String getPostalCode() {
+		return postalCode;
+	}
 
-    public void setDeliver_copy_email(String deliver_copy_email) {
-        this.deliver_copy_email = deliver_copy_email;
-    }
-    
-    public boolean getDeliver_by_mail() {
-        return deliver_by_mail;
-    }
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
 
-    public void setDeliver_by_mail(boolean deliver_by_mail) {
-        this.deliver_by_mail = deliver_by_mail;
-    }
-    
-    public boolean getIs_auto_billing() {
-        return is_auto_billing;
-    }
+	public int getCountry() {
+		return country;
+	}
 
-    public void setIs_auto_billing(boolean is_auto_billing) {
-        this.is_auto_billing = is_auto_billing;
-    }
-    
-    public String getInfo() {
-        return info;
-    }
+	public void setCountry(int country) {
+		this.country = country;
+	}
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
-    
-    public String getContact_name() {
-        return contact_name;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setContact_name(String contact_name) {
-        this.contact_name = contact_name;
-    }
-    
-    public String getPhone() {
-        return phone;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    
-    public boolean getIs_active() {
-        return is_active;
-    }
+	public String getDic() {
+		return dic;
+	}
 
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
-    }
+	public void setDic(String dic) {
+		this.dic = dic;
+	}
 
-    public int getStatus() {
-        return status;
-    }
+	public String getContractNo() {
+		return contractNo;
+	}
 
-    public void setStatus(int status) {
-        this.status = status;
-    }  
-    
-    public long getShire_id() {
-        return shire_id;
-    }
+	public void setContractNo(String contractNo) {
+		this.contractNo = contractNo;
+	}
 
-    public void setShire_id(long shire_id) {
-        this.shire_id = shire_id;
-    }
-    
-    public int getFormat() {
-        return format;
-    }
+	public String getConnectionSpot() {
+		return connectionSpot;
+	}
 
-    public void setFormat(int format) {
-        this.format = format;
-    }  
-    
-    public boolean getDeliver_signed() {
-        return deliver_signed;
-    }
+	public void setConnectionSpot(String connectionSpot) {
+		this.connectionSpot = connectionSpot;
+	}
 
-    public void setDeliver_signed(boolean deliver_signed) {
-        this.deliver_signed = deliver_signed;
-    }
-    
-    public String getSymbol() {
-        return symbol;
-    }
+	public Timestamp getInsertedOn() {
+		return insertedOn;
+	}
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-    
-    public Timestamp getUpdated() {
-        return updated;
-    }
+	public void setInsertedOn(Timestamp insertedOn) {
+		this.insertedOn = insertedOn;
+	}
 
-    public void setUpdated(Timestamp updated) {
-        this.updated = updated;
-    }
-    
-    public String getAccount_no() {
-        return account_no;
-    }
+	public int getFrequency() {
+		return frequency;
+	}
 
-    public void setAccount_no(String account_no) {
-        this.account_no = account_no;
-    }
-    
-    public String getBank_no() {
-        return bank_no;
-    }
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
 
-    public void setBank_no(String bank_no) {
-        this.bank_no = bank_no;
-    }
-    
-    public int getVariable() {
-        return variable;
-    }
+	public Timestamp getLastlyBilled() {
+		return lastlyBilled;
+	}
 
-    public void setVariable(int variable) {
-        this.variable = variable;
-    }
+	public void setLastlyBilled(Timestamp lastlyBilled) {
+		this.lastlyBilled = lastlyBilled;
+	}
+
+	public boolean getIsBilledAfter() {
+		return isBilledAfter;
+	}
+
+	public void setIsBilledAfter(boolean isBilledAfter) {
+		this.isBilledAfter = isBilledAfter;
+	}
+
+	public boolean getDeliverByEmail() {
+		return deliverByEmail;
+	}
+
+	public void setDeliverByEmail(boolean deliverByEmail) {
+		this.deliverByEmail = deliverByEmail;
+	}
+
+	public String getDeliverCopyEmail() {
+		return deliverCopyEmail;
+	}
+
+	public void setDeliverCopyEmail(String deliverCopyEmail) {
+		this.deliverCopyEmail = deliverCopyEmail;
+	}
+
+	public boolean getDeliverByMail() {
+		return deliverByMail;
+	}
+
+	public void setDeliverByMail(boolean deliverByMail) {
+		this.deliverByMail = deliverByMail;
+	}
+
+	public boolean getIsAutoBilling() {
+		return isAutoBilling;
+	}
+
+	public void setIsAutoBilling(boolean isAutoBilling) {
+		this.isAutoBilling = isAutoBilling;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public String getContactName() {
+		return contactName;
+	}
+
+	public void setContactName(String contactName) {
+		this.contactName = contactName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public long getShireId() {
+		return shireId;
+	}
+
+	public void setShireId(long shireId) {
+		this.shireId = shireId;
+	}
+
+	public int getFormat() {
+		return format;
+	}
+
+	public void setFormat(int format) {
+		this.format = format;
+	}
+
+	public boolean getDeliverSigned() {
+		return deliverSigned;
+	}
+
+	public void setDeliverSigned(boolean deliverSigned) {
+		this.deliverSigned = deliverSigned;
+	}
+
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	public Timestamp getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public String getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(String accountNo) {
+		this.accountNo = accountNo;
+	}
+
+	public String getBankNo() {
+		return bankNo;
+	}
+
+	public void setBankNo(String bankNo) {
+		this.bankNo = bankNo;
+	}
+
+	public int getVariable() {
+		return variable;
+	}
+
+	public void setVariable(int variable) {
+		this.variable = variable;
+	}
 }

@@ -4,6 +4,7 @@ package net.snet.crm.api.model;
  * Created by admin on 22.12.13.
  */
 public class Region {
+
 	private long id;
 	private String name;
 
@@ -33,13 +34,21 @@ public class Region {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Region)) return false;
+		if (this == o) {
+			return true;
+		}
+		if (!(o instanceof Region)) {
+			return false;
+		}
 
 		Region region = (Region) o;
 
-		if (id != region.id) return false;
-		if (!name.equals(region.name)) return false;
+		if (id != region.id) {
+			return false;
+		}
+		if (!name.equals(region.name)) {
+			return false;
+		}
 
 		return true;
 	}
@@ -53,9 +62,9 @@ public class Region {
 
 	@Override
 	public String toString() {
-		return "Region{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				'}';
+		return "Region{"
+						+ "id=" + id
+						+ ", name='" + name + '\''
+						+ '}';
 	}
 }

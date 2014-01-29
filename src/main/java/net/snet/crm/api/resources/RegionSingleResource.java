@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package net.snet.crm.api.resources;
 
 import com.yammer.dropwizard.jersey.params.LongParam;
@@ -29,41 +28,40 @@ import net.snet.crm.api.model.Region;
  *
  * @author chemik
  */
-
 @Path("/regions/{regionId}")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class RegionSingleResource {
-    
-    private final RegionDao regionDao;
 
-    public RegionSingleResource(RegionDao regionDao) {
-            this.regionDao = regionDao;
-    }
+	private final RegionDao regionDao;
 
-    @GET
-    @Timed(name="get-requests")
-    public Map<String, Object> returnRegion(@PathParam("regionId") LongParam regionId, @Context HttpServletResponse response) {
+	public RegionSingleResource(RegionDao regionDao) {
+		this.regionDao = regionDao;
+	}
 
-        final HashMap<String, Object> regions = new HashMap<>();
-        final List<Region> region = regionDao.getRegionById(regionId.get().intValue());
-        
-        if (region.isEmpty()) {
-            throw new WebApplicationException(Response.status(404).build());
-        }
-        
-        regions.put("regions", region);            
-        return regions;
-    }    
-    
-    @DELETE
-    @Timed(name="get-requests")
-    public void deleteRegion(@PathParam("regionId") LongParam regionId) {
+	@GET
+	@Timed(name = "get-requests")
+	public Map<String, Object> returnRegion(@PathParam("regionId") LongParam regionId, @Context HttpServletResponse response) {
 
-        int retCode = regionDao.geleteRegionById(regionId.get().intValue());
-        
-        if (retCode == 0) {
-            throw new WebApplicationException(Response.status(404).build());
-        }           
-    }    
+		final HashMap<String, Object> regions = new HashMap<>();
+		final List<Region> region = regionDao.getRegionById(regionId.get().intValue());
+
+		if (region.isEmpty()) {
+			throw new WebApplicationException(Response.status(404).build());
+		}
+
+		regions.put("regions", region);
+		return regions;
+	}
+
+	@DELETE
+	@Timed(name = "get-requests")
+	public void deleteRegion(@PathParam("regionId") LongParam regionId) {
+
+		int retCode = regionDao.geleteRegionById(regionId.get().intValue());
+
+		if (retCode == 0) {
+			throw new WebApplicationException(Response.status(404).build());
+		}
+	}
 }

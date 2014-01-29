@@ -27,37 +27,38 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductSingleResource {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RegionResource.class);
 
-    private final ProductDao productDao;
+	private static final Logger LOGGER = LoggerFactory.getLogger(RegionResource.class);
 
-    public ProductSingleResource(ProductDao productDao) {
-            this.productDao = productDao;
-    }
+	private final ProductDao productDao;
 
-    @GET
-    @Timed(name="get-requests")
-    public Map<String, Object> returnProduct(@PathParam("productId") LongParam productId) {
+	public ProductSingleResource(ProductDao productDao) {
+		this.productDao = productDao;
+	}
 
-        final HashMap<String, Object> products = new HashMap<>();
-        final List<Product> product = productDao.getProductById(productId.get().intValue());
+	@GET
+	@Timed(name = "get-requests")
+	public Map<String, Object> returnProduct(@PathParam("productId") LongParam productId) {
 
-        if (product.isEmpty()) {
-            throw new WebApplicationException(Response.status(404).build());
-        }
+		final HashMap<String, Object> products = new HashMap<>();
+		final List<Product> product = productDao.getProductById(productId.get().intValue());
 
-        products.put("products", product);            
-        return products;
-    }
+		if (product.isEmpty()) {
+			throw new WebApplicationException(Response.status(404).build());
+		}
 
-    @DELETE
-    @Timed(name="get-requests")
-    public void deleteProduct(@PathParam("productId") LongParam productId) {
+		products.put("products", product);
+		return products;
+	}
 
-        int retCode = productDao.deleteProductById(productId.get().intValue());
+	@DELETE
+	@Timed(name = "get-requests")
+	public void deleteProduct(@PathParam("productId") LongParam productId) {
 
-        if (retCode == 0) {
-            throw new WebApplicationException(Response.status(404).build());
-        }           
-    }                  
+		int retCode = productDao.deleteProductById(productId.get().intValue());
+
+		if (retCode == 0) {
+			throw new WebApplicationException(Response.status(404).build());
+		}
+	}
 }

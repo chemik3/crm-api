@@ -11,17 +11,16 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 /**
  * Created by admin on 22.12.13.
  */
-
 @RegisterMapper(RegionMapper.class)
 public interface RegionDao {
-    
-    @SqlQuery("SELECT id, name FROM regions")
-    List<Region> findAllRegions();
 
-    @SqlQuery("SELECT id, name FROM regions WHERE id = :id")
-    List<Region> getRegionById(@Bind("id") int id);
-    
-    @SqlUpdate("DELETE FROM regions WHERE id = :id")
-    int geleteRegionById(@Bind("id") int id);
-    
+	@SqlQuery("SELECT id, name FROM regions")
+	List<Region> findAllRegions();
+
+	@SqlQuery("SELECT id, name FROM regions WHERE id = :id")
+	List<Region> getRegionById(@Bind("id") int id);
+
+	@SqlUpdate("DELETE FROM regions WHERE id = :id")
+	int geleteRegionById(@Bind("id") int id);
+
 }

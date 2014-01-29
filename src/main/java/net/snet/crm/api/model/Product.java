@@ -4,21 +4,22 @@ package net.snet.crm.api.model;
  * Created by admin on 22.12.13.
  */
 public class Product {
+
 	private long id;
 	private String name;
-        private int download;
-        private int upload;
-        private int price;
-        
+	private int download;
+	private int upload;
+	private int price;
+
 	public Product() {
 	}
 
 	public Product(long id, String name, int download, int upload, int price) {
 		this.id = id;
 		this.name = name;
-                this.download = download;
-                this.upload = upload;
-                this.price = price;
+		this.download = download;
+		this.upload = upload;
+		this.price = price;
 	}
 
 	public long getId() {
@@ -39,13 +40,21 @@ public class Product {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Product)) return false;
+		if (this == o) {
+			return true;
+		}
+		if (!(o instanceof Product)) {
+			return false;
+		}
 
 		Product region = (Product) o;
 
-		if (id != region.id) return false;
-		if (!name.equals(region.name)) return false;
+		if (id != region.id) {
+			return false;
+		}
+		if (!name.equals(region.name)) {
+			return false;
+		}
 
 		return true;
 	}
@@ -59,9 +68,9 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Region{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				'}';
+		return "Region{"
+						+ "id=" + id
+						+ ", name='" + name + '\''
+						+ '}';
 	}
 }
